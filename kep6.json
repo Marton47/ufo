@@ -1,0 +1,36 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Észlelések időtartama a főbb UFO formák szerint",
+    "subtitle": "Másodpercek logaritmikus skálán (medián és eloszlás)",
+    "fontSize": 16,
+    "anchor": "start"
+  },
+  "width": 600,
+  "height": 300,
+  "data": {
+    "values": [
+      {"Forma": "Light", "Idotartam": 10}, {"Forma": "Light", "Idotartam": 60}, {"Forma": "Light", "Idotartam": 300}, {"Forma": "Light", "Idotartam": 1200},
+      {"Forma": "Triangle", "Idotartam": 30}, {"Forma": "Triangle", "Idotartam": 180}, {"Forma": "Triangle", "Idotartam": 600}, {"Forma": "Triangle", "Idotartam": 1800},
+      {"Forma": "Circle", "Idotartam": 5}, {"Forma": "Circle", "Idotartam": 45}, {"Forma": "Circle", "Idotartam": 240}, {"Forma": "Circle", "Idotartam": 900},
+      {"Forma": "Fireball", "Idotartam": 2}, {"Forma": "Fireball", "Idotartam": 10}, {"Forma": "Fireball", "Idotartam": 30}, {"Forma": "Fireball", "Idotartam": 120},
+      {"Forma": "Sphere", "Idotartam": 15}, {"Forma": "Sphere", "Idotartam": 120}, {"Forma": "Sphere", "Idotartam": 900}, {"Forma": "Sphere", "Idotartam": 3600},
+      {"Forma": "Disk", "Idotartam": 20}, {"Forma": "Disk", "Idotartam": 300}, {"Forma": "Disk", "Idotartam": 1800}, {"Forma": "Disk", "Idotartam": 7200}
+    ]
+  },
+  "mark": {"type": "boxplot", "extent": "min-max"},
+  "encoding": {
+    "x": {
+      "field": "Forma",
+      "type": "nominal",
+      "title": "UFO Alakja"
+    },
+    "y": {
+      "field": "Idotartam",
+      "type": "quantitative",
+      "scale": {"type": "log"},
+      "title": "Időtartam (másodperc)"
+    },
+    "color": {"value": "#ecc94b"}
+  }
+}

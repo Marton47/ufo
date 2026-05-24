@@ -1,0 +1,37 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 450,
+  "data": {
+    "url": "UFO.csv"
+  },
+  "transform": [
+    {"filter": "datum.UFO_shape != null && datum.UFO_shape != ''"},
+    {"aggregate": [{"op": "count", "as": "Sightings"}], "groupby": ["UFO_shape"]},
+    {"window": [{"op": "rank", "as": "rank"}], "sort": [{"field": "Sightings", "order": "descending"}]},
+    {"filter": "datum.rank <= 15"}
+  ],
+  "mark": {"type": "bar", "color": "#ed8936"},
+  "encoding": {
+    "x": {
+      "field": "Sightings",
+      "type": "quantitative",
+      "title": "Észlelések száma"
+    },
+    "y": {
+      "field": "UFO_shape",
+      "type": "nominal",
+      "sort": "-x",
+      "title": "UFO Forma"
+    },
+    "tooltip": [
+      {"field": "UFO_shape", "type": "nominal", "title": "Forma"},
+      {"field": "Sightings", "type": "quantitative", "title": "Észlelések"}
+    ]
+  },
+  "title": {
+    "text": "A 15 leggyakrabban jelentett UFO forma",
+    "fontSize": 16,
+    "anchor": "start"
+  }
+}

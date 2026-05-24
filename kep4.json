@@ -1,0 +1,44 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "UFO észlelések szezonális eloszlása hónapok szerint",
+    "fontSize": 16,
+    "anchor": "start"
+  },
+  "width": 600,
+  "height": 300,
+  "data": {
+    "values": [
+      {"Honap_Szam": 1, "Honap": "Január", "Észlelések": 5671},
+      {"Honap_Szam": 2, "Honap": "Február", "Észlelések": 4661},
+      {"Honap_Szam": 3, "Honap": "Március", "Észlelések": 5396},
+      {"Honap_Szam": 4, "Honap": "Április", "Észlelések": 5510},
+      {"Honap_Szam": 5, "Honap": "Május", "Észlelések": 5271},
+      {"Honap_Szam": 6, "Honap": "Június", "Észlelések": 8073},
+      {"Honap_Szam": 7, "Honap": "Július", "Észlelések": 9512},
+      {"Honap_Szam": 8, "Honap": "Augusztus", "Észlelések": 8632},
+      {"Honap_Szam": 9, "Honap": "Szeptember", "Észlelések": 7578},
+      {"Honap_Szam": 10, "Honap": "Október", "Észlelések": 7407},
+      {"Honap_Szam": 11, "Honap": "November", "Észlelések": 6739},
+      {"Honap_Szam": 12, "Honap": "December", "Észlelések": 5656}
+    ]
+  },
+  "mark": {"type": "bar", "color": "#ecc94b"},
+  "encoding": {
+    "x": {
+      "field": "Honap",
+      "type": "nominal",
+      "title": "Hónap",
+      "sort": {"field": "Honap_Szam"}
+    },
+    "y": {
+      "field": "Észlelések",
+      "type": "quantitative",
+      "title": "Regisztrált esetek"
+    },
+    "tooltip": [
+      {"field": "Honap", "type": "nominal", "title": "Hónap"},
+      {"field": "Észlelések", "type": "quantitative", "title": "Darabszám"}
+    ]
+  }
+}

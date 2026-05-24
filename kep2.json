@@ -1,0 +1,40 @@
+{
+    "background": "transparent",
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 350,
+  "data": {
+    "url": "UFO.csv"
+  },
+  "transform": [
+    {"calculate": "replace(datum.Date_time, ' 24:00', ' 00:00')", "as": "date_cleaned"},
+    {"calculate": "timeParse(datum.date_cleaned, '%m/%d/%Y %H:%M')", "as": "date_parsed"},
+    {"calculate": "hours(datum.date_parsed)", "as": "Hour"},
+    {"filter": "datum.Hour != null"}
+  ],
+  "mark": {"type": "bar", "color": "#319795"},
+  "encoding": {
+    "x": {
+      "field": "Hour",
+      "type": "ordinal",
+      "title": "Óra (napszak)",
+      "axis": {"labelAngle": 0}
+    },
+    "y": {
+      "aggregate": "count",
+      "type": "quantitative",
+      "title": "Észlelések száma"
+    },
+    
+    "tooltip": [
+      {"field": "Hour", "type": "ordinal", "title": "Óra"},
+      {"aggregate": "count", "type": "quantitative", "title": "Észlelések"}
+    ]
+  },
+
+  "title": {
+    "text": "UFO észlelések napszaki eloszlása (0-23 óra)",
+    "fontSize": 16,
+    "anchor": "start"
+  }
+}

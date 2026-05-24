@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UFO Észlelések Dashboard</title>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+    <style>
+        body {
+        
+            font-family: sans-serif;
+            background-image: url('ufo_hatter.png');
+            background-size: cover;
+            background-position: center;  /* Középre igazítja */
+            background-attachment: fixed;
+            padding: 30px;
+            margin: 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .chart-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            display: inline-block;
+            border: 1px solid #e2e8f0;
+        }
+        .chart-div {
+            width: 700px;
+            height: 400px;
+        }
+        .dashboard-image {
+    width: 700px;        /* Pontosan akkora, mint a grafikonjaid szélessége */
+    height: auto;         /* Megtartja a kép eredeti arányait, nem torzítja el */
+    border-radius: 4px;   /* Enyhén kerekített sarok, hogy illeszkedjen a modern dizájnhoz */
+    display: block;
+    margin: 0 auto;
+}
+
+.image-title {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 15px;
+    color: #1a202c;       /* Ugyanolyan sötétszürke szín, mint a grafikonok címei */
+}
+h1 {
+    text-align: center;
+    color: #ffffff; /* Ez változtatja meg a színt fehérre */
+    margin-bottom: 40px;
+}
+.chart-box {
+    background: color(srgb rgb(25, 48, 117) green blue); /* Teljesen átlátszóvá teszi a dobozt */
+    border: none;             /* Eltünteti a doboz keretét is, ha van */
+    padding: 20px;
+    margin-bottom: 30px;
+    display: inline-block;
+}
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>UFO Észlelések Analitika</h1>
+
+        <div class="chart-box">
+            <div id="ufo-trend" class="chart-div"></div>
+        </div>
+
+        <div class="chart-box">
+            <div id="ufo-matrix" class="chart-div"></div>
+        </div>
+        <div class="chart-box">
+            <div id="ufo-hours" class="chart-div"></div>
+        </div>
+        <div class="chart-box">
+            <div id="ufo-months" class="chart-div"></div>
+        </div>
+        <div class="chart-box">
+            <div id="ufo-countries" class="chart-div"></div>
+        </div>
+        
+        <div class="chart-box">
+            <div id="k1" class="chart-div"></div>
+        </div>
+        <div class="chart-box">
+            <div id="k2" class="chart-div"></div>
+        </div>
+        <div class="chart-box">
+            <div id="k3" class="chart-div"></div>
+        </div>
+        <div class="chart-box">
+            <div id="k4" class="chart-div"></div>
+        </div>
+       
+        <div class="chart-box">
+    <div class="image-title">UFO jelenségek alakja és megjelenése</div>
+    <img src="UFOk.png" alt="UFO jelenségek típusai" class="dashboard-image">
+</div>
+    </div>
+
+    <script>
+        // Itt hivatkozunk a te általad megadott fájlnevekre!
+        vegaEmbed('#ufo-trend', 'kep1.json').catch(console.error);
+        vegaEmbed('#ufo-matrix', 'kep2.json').catch(console.error);
+        vegaEmbed('#ufo-hours', 'kep3.json').catch(console.error);
+        vegaEmbed('#ufo-months', 'kep4.json').catch(console.error);
+        vegaEmbed('#ufo-countries', 'kep5.json').catch(console.error);
+         vegaEmbed('#k1', 'kep6.json').catch(console.error);
+         vegaEmbed('#k2', 'kep7.json').catch(console.error);
+         vegaEmbed('#k3', 'kep8.json').catch(console.error);
+         vegaEmbed('#k4', 'kep9.json').catch(console.error);
+    </script>
+</body>
+</html>

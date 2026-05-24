@@ -1,0 +1,40 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "UFO formák szezonális áramlása az év során",
+    "fontSize": 16,
+    "anchor": "start"
+  },
+  "width": 600,
+  "height": 300,
+  "data": {
+    "values": [
+      {"Honap": "Jan", "Forma": "Light", "Eszleles": 2500}, {"Honap": "Jan", "Forma": "Triangle", "Eszleles": 1200}, {"Honap": "Jan", "Forma": "Disk", "Eszleles": 800},
+      {"Honap": "Apr", "Forma": "Light", "Eszleles": 2700}, {"Honap": "Apr", "Forma": "Triangle", "Eszleles": 1100}, {"Honap": "Apr", "Forma": "Disk", "Eszleles": 900},
+      {"Honap": "Jul", "Forma": "Light", "Eszleles": 5500}, {"Honap": "Jul", "Forma": "Triangle", "Eszleles": 1900}, {"Honap": "Jul", "Forma": "Disk", "Eszleles": 1200},
+      {"Honap": "Okt", "Forma": "Light", "Eszleles": 3800}, {"Honap": "Okt", "Forma": "Triangle", "Eszleles": 1500}, {"Honap": "Okt", "Forma": "Disk", "Eszleles": 1000}
+    ]
+  },
+  "mark": "area",
+  "encoding": {
+    "x": {
+      "field": "Honap",
+      "type": "ordinal",
+      "sort": ["Jan", "Apr", "Jul", "Okt"],
+      "title": "Kiemelt Hónapok"
+    },
+    "y": {
+      "aggregate": "sum",
+      "field": "Eszleles",
+      "type": "quantitative",
+      "stack": "center",
+      "axis": null
+    },
+    "color": {
+      "field": "Forma",
+      "type": "nominal",
+      "scale": {"scheme": "goldorange"},
+      "title": "Forma"
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "UFO formák előfordulása országonként (USA nélkül)",
+  "width": 500,
+  "height": 400,
+  "data": {
+    "url": "UFO.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum['country'] != null && datum['country'] != '' && datum['country'] != 'us' && datum['UFO_shape'] != null && datum['UFO_shape'] != '' && datum['UFO_shape'] != 'unknown'"
+    },
+    {
+      "calculate": "datum['country'] == 'ca' ? 'Kanada' : datum['country'] == 'gb' ? 'Nagy-Britannia' : datum['country'] == 'au' ? 'Ausztrália' : datum['country'] == 'de' ? 'Németország' : datum['country']",
+      "as": "Ország"
+    },
+    {
+      "aggregate": [{"op": "count", "as": "Eszlelesek"}],
+      "groupby": ["Ország", "UFO_shape"]
+    }
+  ],
+  "mark": "rect",
+  "encoding": {
+    "x": {
+      "field": "Ország", 
+      "type": "nominal", 
+      "title": "Ország",
+      "axis": {"labelAngle": 0}
+    },
+    "y": {
+      "field": "UFO_shape", 
+      "type": "nominal", 
+      "title": "UFO Forma"
+    },
+    "color": {
+      "field": "Eszlelesek",
+      "type": "quantitative",
+      "title": "Észlelések száma",
+      "scale": {"scheme": "oranges"}
+    },
+    "tooltip": [
+      {"field": "Ország", "type": "nominal"},
+      {"field": "UFO_shape", "type": "nominal", "title": "Forma"},
+      {"field": "Eszlelesek", "type": "quantitative", "title": "Észlelések száma"}
+    ]
+  },
+  "title": {
+    "text": "UFO formák nemzetközi előfordulása",
+    "subtitle": "Formák eloszlása az USA adatainak kiszűrésével",
+    "fontSize": 16,
+    "anchor": "start"
+  }
+}

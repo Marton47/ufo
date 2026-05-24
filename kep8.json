@@ -1,0 +1,42 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Popkulturális mérföldkövek hatása az észlelésekre",
+    "subtitle": "Éves észlelésszámok a kultikus sci-fi filmek megjelenésekor",
+    "fontSize": 16,
+    "anchor": "start"
+  },
+  "width": 600,
+  "height": 300,
+  "layer": [
+    {
+      "data": {
+        "values": [
+          {"Ev": 1970, "Eszlelesek": 300}, {"Ev": 1975, "Eszlelesek": 400}, {"Ev": 1977, "Eszlelesek": 650},
+          {"Ev": 1980, "Eszlelesek": 500}, {"Ev": 1982, "Eszlelesek": 800}, {"Ev": 1985, "Eszlelesek": 600},
+          {"Ev": 1990, "Eszlelesek": 700}, {"Ev": 1993, "Eszlelesek": 1200}, {"Ev": 1996, "Eszlelesek": 2800},
+          {"Ev": 2000, "Eszlelesek": 4500}, {"Ev": 2005, "Eszlelesek": 5500}, {"Ev": 2010, "Eszlelesek": 6800}
+        ]
+      },
+      "mark": {"type": "line", "color": "#ecc94b", "strokeWidth": 3},
+      "encoding": {
+        "x": {"field": "Ev", "type": "quantitative", "title": "Év", "axis": {"format": "d"}},
+        "y": {"field": "Eszlelesek", "type": "quantitative", "title": "Éves észlelésszám"}
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"Ev": 1977, "Film": "Star Wars / Harmadik típusú találkozások"},
+          {"Ev": 1982, "Film": "E.T. A földönkívüli"},
+          {"Ev": 1993, "Film": "X-Akták sorozat"},
+          {"Ev": 1996, "Film": "Függetlenség Napja"}
+        ]
+      },
+      "mark": {"type": "rule", "color": "#e53e3e", "strokeDash": [4, 4]},
+      "encoding": {
+        "x": {"field": "Ev", "type": "quantitative"}
+      }
+    }
+  ]
+}
