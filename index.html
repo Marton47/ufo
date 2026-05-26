@@ -72,40 +72,51 @@ h1 {
     <div class="container">
         <h1>UFO Észlelések Analitika</h1>
 
-        <div class="chart-box">
+        <!-- <div class="chart-box">
             <div id="ufo-trend" class="chart-div"></div>
-        </div>
+        </div> -->
 
         <div class="chart-box">
-            <div id="ufo-matrix" class="chart-div"></div>
+            <div id="ufo-countries" class="chart-div"></div>
         </div>
         <div class="chart-box">
-            <div id="ufo-hours" class="chart-div"></div>
+            <div id="k5" class="chart-div"></div>
         </div>
         <div class="chart-box">
             <div id="ufo-months" class="chart-div"></div>
         </div>
         <div class="chart-box">
-            <div id="ufo-countries" class="chart-div"></div>
+            <div id="ufo-matrix" class="chart-div"></div>
         </div>
+        <div class="chart-box">
+    <div class="image-title">UFO jelenségek alakja és megjelenése</div>
+    <img src="UFOk.png" alt="UFO jelenségek típusai" class="dashboard-image">
+</div>
+        <div class="chart-box">
+            <div id="ufo-hours" class="chart-div"></div>
+        </div>
+        
+        <!-- <div class="chart-box">
+            <div id="k2" class="chart-div"></div>
+        </div> -->
         
         <div class="chart-box">
             <div id="k1" class="chart-div"></div>
         </div>
         <div class="chart-box">
-            <div id="k2" class="chart-div"></div>
-        </div>
+        <div class="image-title">UFO jelenségek alakja és megjelenése</div>
+    <img src="Ufo2.png" alt="UFO jelenségek típusai" class="dashboard-image">
+</div>
         <div class="chart-box">
             <div id="k3" class="chart-div"></div>
         </div>
-        <div class="chart-box">
+
+        <!-- <div class="chart-box">
             <div id="k4" class="chart-div"></div>
-        </div>
+        </div> -->
+        
        
-        <div class="chart-box">
-    <div class="image-title">UFO jelenségek alakja és megjelenése</div>
-    <img src="UFOk.png" alt="UFO jelenségek típusai" class="dashboard-image">
-</div>
+ 
     </div>
 
     <script>
@@ -119,6 +130,7 @@ h1 {
          vegaEmbed('#k2', 'kep7.json').catch(console.error);
          vegaEmbed('#k3', 'kep8.json').catch(console.error);
          vegaEmbed('#k4', 'kep9.json').catch(console.error);
+          vegaEmbed('#k5', 'kep10.json').catch(console.error);
     </script>
 </body>
 </html>
