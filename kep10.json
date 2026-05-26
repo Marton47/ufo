@@ -1,0 +1,104 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "UFO észlelések földrajzi eloszlása az USA-ban",
+    "subtitle": "Regisztrált esetek pontos száma tagállamonként",
+    "fontSize": 16,
+    "anchor": "start"
+  },
+  "width": 590,
+  "height": 450,
+  "data": {
+    "url": "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json",
+    "format": {
+      "type": "topojson",
+      "feature": "states"
+    }
+  },
+  "projection": {
+    "type": "albersUsa"
+  },
+  "transform": [
+    {
+      "lookup": "properties.name",
+      "from": {
+        "data": {
+          "values": [
+            {"state": "Alabama", "Eszlelesek": 642},
+            {"state": "Alaska", "Eszlelesek": 319},
+            {"state": "Arizona", "Eszlelesek": 2414},
+            {"state": "Arkansas", "Eszlelesek": 588},
+            {"state": "California", "Eszlelesek": 8911},
+            {"state": "Colorado", "Eszlelesek": 1413},
+            {"state": "Connecticut", "Eszlelesek": 892},
+            {"state": "Delaware", "Eszlelesek": 166},
+            {"state": "District of Columbia", "Eszlelesek": 99},
+            {"state": "Florida", "Eszlelesek": 3835},
+            {"state": "Georgia", "Eszlelesek": 1255},
+            {"state": "Hawaii", "Eszlelesek": 261},
+            {"state": "Idaho", "Eszlelesek": 521},
+            {"state": "Illinois", "Eszlelesek": 2499},
+            {"state": "Indiana", "Eszlelesek": 1288},
+            {"state": "Iowa", "Eszlelesek": 678},
+            {"state": "Kansas", "Eszlelesek": 613},
+            {"state": "Kentucky", "Eszlelesek": 855},
+            {"state": "Louisiana", "Eszlelesek": 558},
+            {"state": "Maine", "Eszlelesek": 571},
+            {"state": "Maryland", "Eszlelesek": 918},
+            {"state": "Massachusetts", "Eszlelesek": 1253},
+            {"state": "Michigan", "Eszlelesek": 1836},
+            {"state": "Minnesota", "Eszlelesek": 1012},
+            {"state": "Mississippi", "Eszlelesek": 375},
+            {"state": "Missouri", "Eszlelesek": 1458},
+            {"state": "Montana", "Eszlelesek": 472},
+            {"state": "Nebraska", "Eszlelesek": 381},
+            {"state": "Nevada", "Eszlelesek": 803},
+            {"state": "New专Hampshire", "state": "New Hampshire", "Eszlelesek": 486},
+            {"state": "New Jersey", "Eszlelesek": 1370},
+            {"state": "New Mexico", "Eszlelesek": 720},
+            {"state": "New York", "Eszlelesek": 2984},
+            {"state": "North Carolina", "Eszlelesek": 1722},
+            {"state": "North Dakota", "Eszlelesek": 129},
+            {"state": "Ohio", "Eszlelesek": 2275},
+            {"state": "Oklahoma", "Eszlelesek": 724},
+            {"state": "Oregon", "Eszlelesek": 1746},
+            {"state": "Pennsylvania", "Eszlelesek": 2366},
+            {"state": "Rhode Island", "Eszlelesek": 228},
+            {"state": "South Carolina", "Eszlelesek": 1003},
+            {"state": "South Dakota", "Eszlelesek": 178},
+            {"state": "Tennessee", "Eszlelesek": 1119},
+            {"state": "Texas", "Eszlelesek": 3446},
+            {"state": "Utah", "Eszlelesek": 622},
+            {"state": "Vermont", "Eszlelesek": 260},
+            {"state": "Virginia", "Eszlelesek": 1248},
+            {"state": "Washington", "Eszlelesek": 3966},
+            {"state": "West Virginia", "Eszlelesek": 448},
+            {"state": "Wisconsin", "Eszlelesek": 1232},
+            {"state": "Wyoming", "Eszlelesek": 169}
+          ]
+        },
+        "key": "state",
+        "fields": ["Eszlelesek"]
+      }
+    }
+  ],
+  "mark": {
+    "type": "geoshape",
+    "stroke": "#ffffff",
+    "strokeWidth": 0.5
+  },
+  "encoding": {
+    "color": {
+      "field": "Eszlelesek",
+      "type": "quantitative",
+      "title": "Észlelések száma",
+      "scale": {
+        "scheme": "oranges"
+      }
+    },
+    "tooltip": [
+      {"field": "properties.name", "type": "nominal", "title": "Állam"},
+      {"field": "Eszlelesek", "type": "quantitative", "title": "Pontos esetszám"}
+    ]
+  }
+}
